@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a reproducible Cuetide problem without private information.
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This repository is currently private, but this issue and its attachments may become public and indexed when it becomes public.**
+        Redact screenshots and examples. Do not include keys, account details, full library exports, unredacted logs or private listening information.
+        Send vulnerabilities, sensitive reports and privacy/deletion requests privately to **nariushere@gmail.com** instead. See the [private reporting guide](https://github.com/Nariiius/cuetide-releases/security/policy).
+        Check existing issues before submitting. Do not disable Gatekeeper or bypass malware warnings to reproduce a problem.
+  - type: input
+    id: app-version
+    attributes:
+      label: Cuetide version
+      description: Use the version shown in the app or the release filename.
+    validations:
+      required: true
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      description: The version number is enough; do not include a serial number or account name.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest reproduction using redacted or fictional examples.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+      description: Describe what you expected and what happened. Include a short redacted error if useful, not a full log dump.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public-report
+    attributes:
+      label: Public report check
+      options:
+        - label: I understand this report may become public and have removed private information. This is not a security report or privacy/deletion request.
+          required: true

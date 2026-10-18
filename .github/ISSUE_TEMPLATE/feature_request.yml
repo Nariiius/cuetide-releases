@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest an improvement; requests are not delivery commitments.
+labels: [enhancement, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check existing requests and the [small roadmap](https://github.com/Nariiius/cuetide-releases/blob/main/ROADMAP.md) first. There are no announced delivery dates.
+        **This repository is currently private, but this issue and its attachments may become public and indexed when it becomes public.** Use fictional or redacted examples, not private listening information, keys, account details, full library exports or unredacted logs.
+        For vulnerabilities, sensitive reports or privacy/deletion requests, email **nariushere@gmail.com** instead. See the [private reporting guide](https://github.com/Nariiius/cuetide-releases/security/policy).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the task or difficulty without sharing personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: Optional. Explain a possible solution or alternative; no mockup or attachment is required.
+    validations:
+      required: false
+  - type: checkboxes
+    id: public-report
+    attributes:
+      label: Public report check
+      options:
+        - label: I understand this report may become public and have removed private information. This is not a security report or privacy/deletion request.
+          required: true
