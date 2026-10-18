@@ -1,45 +1,74 @@
-# Cuetide — releases and support
+# Cuetide
 
-Cuetide is an independent companion for Apple Music on macOS. This repository is for release installers, release notes, bug reports and feature requests. The application source stays in a separate private repository; no application source or private source history is hosted here.
+An independent Apple Music companion for macOS: a left-edge waveform, floating player, live queue, library filters and lyrics.
 
-- [Releases](https://github.com/Nariiius/cuetide-releases/releases)
-- [Report a bug or suggest an improvement](https://github.com/Nariiius/cuetide-releases/issues/new/choose)
-- [Roadmap](ROADMAP.md)
-- [Private security and privacy contact](SECURITY.md)
+[Releases](https://github.com/Nariiius/cuetide-releases/releases) · [Bugs & ideas](https://github.com/Nariiius/cuetide-releases/issues/new/choose) · [Small roadmap](ROADMAP.md) · [Private contact](SECURITY.md)
 
-## Release availability and requirements
+## Download
 
-This repository is **private during preparation**. It will become public only after Narius approves. **v1.0.0** is the planned first public release, based on a pinned snapshot of the source repository’s `main` branch. There is no public installer yet.
+**1.0.0 is being prepared. No public installer is available yet.** This repository stays private until Narius approves making it public. It hosts releases and support, not the private application source or its history. The intended release baseline is the source repository's `main`, not an unrelated development branch.
 
-Licence terms have not been selected. No `LICENSE` file or licence grant is supplied by this repository; the licence decision remains with Narius before distribution.
+- Requires **macOS 26+ and Apple Music**. Initial packaging targets Apple silicon; Intel compatibility is not verified.
+- Cuetide is free. Apple Music services can require a separate account and subscription.
+- The initial build will be **ad-hoc signed, not Developer ID signed or notarized**. MusicKit catalog/account features may be unavailable; local Music.app control is a separate integration.
+- **The app's distribution licence is still undecided.** This README does not grant one; no installer will be distributed before that decision.
 
-Check **Releases** for availability. If there is no published release with a matching `.dmg` and `.dmg.sha256`, there is no public installer to download here yet. A local build or draft release is not a public release.
+## Install and update
 
-- Target platform: macOS 26 or newer and Apple’s Music app. Native release preparation has been exercised on Apple silicon; Intel compatibility is not established for v1.0.0. Release-specific verification will be recorded when an installer is attached.
-- Cuetide is currently free. Apple Music streaming and account features may require Apple's subscription and authorisation, separately from Cuetide.
-- The intended initial distribution uses ad-hoc signing, not a Developer ID certificate, and is not notarised. MusicKit-only catalogue/account features may be unavailable without a matching enabled App ID; local-library controls use a separate path.
+When a release is published, download its matching DMG and checksum from **Releases**, not an issue attachment or unknown mirror. From the folder containing both files:
 
-## Download and first launch
+```sh
+shasum -a 256 -c Cuetide-1.0.0.dmg.sha256
+```
 
-1. On the published release page, read the release notes and download its matching DMG and SHA-256 file. Do not use installers attached to issues or from unknown mirrors.
-2. In Terminal, from the folder containing both files, run `shasum -a 256 -c` followed by the downloaded checksum filename. The result should say `OK`. A checksum checks file integrity, **not publisher identity, malware safety or notarisation**. Stop if verification fails.
-3. Open the DMG and drag Cuetide into Applications, then try opening it.
-4. If macOS says it cannot verify the developer or check the app for malware, click **Done**. Only if you trust the download, open **System Settings → Privacy & Security → Open Anyway** for Cuetide, authenticate, and confirm. See [Apple's current instructions](https://support.apple.com/en-us/102445).
+Continue only if the matching DMG reports `OK`. A checksum checks integrity, **not publisher identity or malware safety**. Open the DMG, drag Cuetide into Applications, eject the image and launch the installed copy. Look for its menu-bar icon and screen-edge panel rather than a Dock window.
 
-If macOS reports malware, damage, or provides no per-app override, stop and report the problem privately. Do not disable Gatekeeper, remove quarantine attributes, or bypass a malware warning.
+If macOS blocks the trusted unsigned app, use **System Settings → Privacy & Security → Open Anyway** for Cuetide, if offered, then authenticate and confirm. [Apple's instructions](https://support.apple.com/en-us/102445). Stop if macOS reports malware, damage or offers no genuine per-app override. Do not disable Gatekeeper or strip quarantine attributes.
 
-Grant permissions only for features you use: Automation allows control of Music, and system-audio recording enables the waveform. Updates to an ad-hoc build can require renewed permission approval. Do not delete your library or reset unrelated applications' permissions to troubleshoot.
+Grant only the permissions you need: **Automation → Music** for library/playback actions; **System Audio Recording** for the local waveform; optional **Accessibility** for mirroring Music's pins and opening its AirPlay picker. MusicKit authorization is separate and does not fix missing signing/provisioning.
 
-## Privacy and support
+For an update, quit Cuetide, verify the new release's matching checksum and replace the Applications copy. Ad-hoc updates **may** require renewed permissions; review the installed copy in System Settings. Do not reset unrelated apps' permissions. Private Apple interfaces can change, so a permission reset cannot fix every queue or lyrics failure.
 
-Audio processing and on-device AI filtering run locally. Track metadata can still be sent directly to Apple, LRCLIB and ReccoBeats for artwork, lyrics or enrichment, and to GetSongBPM if you configure your own key; those providers receive network information such as your IP address. There is no developer-run app telemetry service.
+## Playlists and privacy
 
-Issues are currently restricted to people with repository access. **Issues and attachments may become public and indexed when this repository becomes public.** Share only the app/macOS version and a minimal reproduction. Redact screenshots and examples; never post API keys, account details, full music-library exports, unredacted logs or private listening information. Do not post security vulnerabilities or deletion requests in issues.
+Filtering replaces the contents of Cuetide's managed **`Filter: Current`** playlist, tracked by persistent ID—not just its name. **Add to Playlist** adds tracks to the existing playlist you select. Uninstalling does not undo Music-side changes. Keep backups of valuable playlists.
 
-For private security reports, privacy/deletion questions, or a report that cannot be safely redacted, contact **Narius** at **nariushere@gmail.com**. See [reporting guidance](SECURITY.md). GitHub operates the issue and download platform under its [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we cannot guarantee removal of copies held by third parties.
+Audio analysis and AI-assisted filtering run locally. Cuetide does not use your microphone, save/upload the audio stream, or operate an app account/backend or developer telemetry service. It does make direct HTTPS lookups: **Apple** for artwork/catalog information, **LRCLIB** for lyrics, **ReccoBeats** for track features, and optional **[GetSongBPM](https://getsongbpm.com)** with your own API key. Providers receive relevant track metadata and your IP address; requests are **not anonymous**. Missing/stale feature metadata can be enriched automatically on library load or refresh.
 
-## Roadmap and affiliation
+## Remove Cuetide
 
-The [roadmap](ROADMAP.md) is intentionally small. Feature requests are suggestions, not delivery promises; there are no announced feature dates.
+Quit Cuetide and move `/Applications/Cuetide.app` to Trash. Local data remains unless you remove it separately.
 
-Cuetide is operated by Narius in Victoria, Australia. It is an independent application and has not been authorised, sponsored or otherwise approved by Apple Inc. Apple, Apple Music, Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries and regions.
+<details>
+<summary>Optional: erase only Cuetide's local data</summary>
+
+In `~/Library/Application Support/Music/`, remove only confirmed Cuetide files:
+
+- `library_cache.json`
+- `track_features.sqlite3`
+- `track_tags.sqlite3` — deleting this loses teachings and corrections
+- `getsong_bpm_cache.sqlite3`
+
+For each listed SQLite file, include its exact matching `-wal`, `-shm` and `-journal` sidecars, if present. Known schema backups are `track_tags.sqlite3.pre-schema-v3.sqlite3` and `track_features.sqlite3.pre-schema-v3.sqlite3`; include their exact matching sidecars and other confirmed Cuetide backups/exports only if no longer needed. Keep databases and sidecars together when backing up.
+
+Networking stores may remain in `~/Library/Caches/com.narius.cuetide/` and `~/Library/HTTPStorages/com.narius.cuetide/`. With the app quit, move only those exact app directories to Trash—not their shared parents.
+
+Optionally run `defaults delete com.narius.cuetide` to reset settings, pins, the managed-playlist identifier and any GetSongBPM key stored in preferences. UserDefaults is not a secrets vault. Remove separately configured environment keys there too; this does not revoke a provider key.
+
+**Never delete the entire `~/Library/Application Support/Music/` folder, your Music library or Apple's lyric caches. No broad wildcard deletion.** Leave uncertain files alone. Check backups before emptying Trash. Removing preferences does not remove the managed playlist or undo other playlist changes.
+
+</details>
+
+## Bugs, ideas and private requests
+
+Use **Bugs & ideas** for a minimal, redacted reproduction and the Cuetide/macOS version. **Issues and attachments may become public and indexed.** Never post keys, account details, full libraries, private listening information or unredacted logs.
+
+Email **[nariushere@gmail.com](mailto:nariushere@gmail.com)** for security reports, sensitive bugs or privacy/access/deletion requests. Requests concern records Narius controls, not remote erasure of your Mac or providers' records. GitHub handles its platform data under its [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+
+The roadmap is intentionally small; suggestions are not delivery promises.
+
+## About
+
+Made by **Narius, Victoria, Australia**. Cuetide is provided “as is” and “as available” to the extent permitted by law. **Nothing here excludes rights or remedies that cannot lawfully be excluded, including under the Australian Consumer Law.** This is not a licence grant or a promise of future compatibility.
+
+Cuetide is not affiliated with, endorsed, sponsored or approved by Apple Inc. Apple, Apple Music, Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries and regions. Provider content retains its own rights; API access or a credit does not grant blanket music, artwork or lyric rights.
