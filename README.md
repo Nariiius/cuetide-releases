@@ -55,6 +55,8 @@ Networking stores may remain in `~/Library/Caches/com.narius.cuetide/` and `~/Li
 
 Optionally run `defaults delete com.narius.cuetide` to reset settings, pins, the managed-playlist identifier and any GetSongBPM key stored in preferences. UserDefaults is not a secrets vault. Remove separately configured environment keys there too; this does not revoke a provider key.
 
+If you used the earlier Library panel demo, its pin cache can be imported again. With Cuetide quit, also remove only the legacy keys, if present: `defaults delete local.cuetide.library-panel-demo.pins music.sidebar.pins` and `defaults delete local.cuetide.library-panel-demo.pins music.sidebar.pins.date`. A missing key needs no action.
+
 **Never delete the entire `~/Library/Application Support/Music/` folder, your Music library or Apple's lyric caches. No broad wildcard deletion.** Leave uncertain files alone. Check backups before emptying Trash. Removing preferences does not remove the managed playlist or undo other playlist changes.
 
 </details>
