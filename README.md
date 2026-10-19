@@ -11,7 +11,7 @@ An independent Apple Music companion for macOS: a left-edge waveform, floating p
 - Requires **macOS 26+ and Apple Music**. Initial packaging targets Apple silicon; Intel compatibility is not verified.
 - Cuetide is free. Apple Music services can require a separate account and subscription.
 - The initial build will be **ad-hoc signed, not Developer ID signed or notarized**. MusicKit catalog/account features may be unavailable; local Music.app control is a separate integration.
-- **The app's distribution licence is still undecided.** This README does not grant one; no installer will be distributed before that decision.
+- **Proprietary freeware:** use the app for free, including ordinary workplace use. Backup copies and sharing official download links are welcome. Redistribution, repackaging, resale or modification needs permission, subject to applicable law and third-party rights. See the short [licence](LICENSE). The private source is not licensed for reuse.
 
 ## Install and update
 
@@ -71,6 +71,6 @@ The roadmap is intentionally small; suggestions are not delivery promises.
 
 ## About
 
-Made by **Narius, Victoria, Australia**. Cuetide is provided “as is” and “as available” to the extent permitted by law. **Nothing here excludes rights or remedies that cannot lawfully be excluded, including under the Australian Consumer Law.** This is not a licence grant or a promise of future compatibility.
+Made by **Narius, Victoria, Australia**. Cuetide is provided “as is” and “as available” to the extent permitted by law. **Nothing here excludes rights or remedies that cannot lawfully be excluded, including under the Australian Consumer Law.** The [freeware licence](LICENSE) covers the app binary, not the private source or third-party content. There is no promise of future compatibility.
 
 Cuetide is not affiliated with, endorsed, sponsored or approved by Apple Inc. Apple, Apple Music, Mac and macOS are trademarks of Apple Inc., registered in the U.S. and other countries and regions. Provider content retains its own rights; API access or a credit does not grant blanket music, artwork or lyric rights.
