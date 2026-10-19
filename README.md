@@ -6,16 +6,18 @@ An independent Apple Music companion for macOS: a left-edge waveform, floating p
 
 ## Download
 
-**1.0.0 is being prepared. No public installer is available yet.** This repository stays private until Narius approves making it public. It hosts releases and support, not the private application source or its history. The intended release baseline is the source repository's `main`, not an unrelated development branch.
+**[Download Cuetide 1.0.0](https://github.com/Nariiius/cuetide-releases/releases/download/v1.0.0/Cuetide-1.0.0.dmg)** · [SHA-256 checksum](https://github.com/Nariiius/cuetide-releases/releases/download/v1.0.0/Cuetide-1.0.0.dmg.sha256) · [Release notes](https://github.com/Nariiius/cuetide-releases/releases/tag/v1.0.0)
+
+This repository hosts official app downloads and support, not the private application source or its history.
 
 - Requires **macOS 26+ and Apple Music**. Initial packaging targets Apple silicon; Intel compatibility is not verified.
 - Cuetide is free. Apple Music services can require a separate account and subscription.
-- The initial build will be **ad-hoc signed, not Developer ID signed or notarized**. MusicKit catalog/account features may be unavailable; local Music.app control is a separate integration.
+- This build is **ad-hoc signed, not Developer ID signed or notarized**. MusicKit catalog/account features may be unavailable; local Music.app control is a separate integration.
 - **Proprietary freeware:** use the app for free, including ordinary workplace use. Backup copies and sharing official download links are welcome. Redistribution, repackaging, resale or modification needs permission, subject to applicable law and third-party rights. See the short [licence](LICENSE). The private source is not licensed for reuse.
 
 ## Install and update
 
-When a release is published, download its matching DMG and checksum from **Releases**, not an issue attachment or unknown mirror. From the folder containing both files:
+Download the matching DMG and checksum from **Releases**, not an issue attachment or unknown mirror. From the folder containing both files:
 
 ```sh
 shasum -a 256 -c Cuetide-1.0.0.dmg.sha256
@@ -63,7 +65,7 @@ If you used the earlier Library panel demo, its pin cache can be imported again.
 
 ## Bugs, ideas and private requests
 
-Use **Bugs & ideas** for a minimal, redacted reproduction and the Cuetide/macOS version. **Issues and attachments may become public and indexed.** Never post keys, account details, full libraries, private listening information or unredacted logs.
+Use **Bugs & ideas** for a minimal, redacted reproduction and the Cuetide/macOS version. **Issues and attachments are public and may be indexed or copied.** Never post keys, account details, full libraries, private listening information or unredacted logs.
 
 Email **[nariushere@gmail.com](mailto:nariushere@gmail.com)** for security reports, sensitive bugs or privacy/access/deletion requests. Requests concern records Narius controls, not remote erasure of your Mac or providers' records. GitHub handles its platform data under its [privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 

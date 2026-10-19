@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Check existing requests and the [small roadmap](https://github.com/Nariiius/cuetide-releases/blob/main/ROADMAP.md) first. There are no announced delivery dates.
-        **This repository is currently private, but this issue and its attachments may become public and indexed when it becomes public.** Use fictional or redacted examples, not private listening information, keys, account details, full library exports or unredacted logs.
+        **This issue and its attachments are public and may be indexed or copied.** Use fictional or redacted examples, not private listening information, keys, account details, full library exports or unredacted logs.
         For vulnerabilities, sensitive reports or privacy/deletion requests, email **nariushere@gmail.com** instead. See the [private reporting guide](https://github.com/Nariiius/cuetide-releases/security/policy).
   - type: textarea
     id: problem
@@ -27,5 +27,5 @@ body:
     attributes:
       label: Public report check
       options:
-        - label: I understand this report may become public and have removed private information. This is not a security report or privacy/deletion request.
+        - label: I understand this report is public and have removed private information. This is not a security report or privacy/deletion request.
           required: true
