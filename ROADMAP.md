@@ -1,6 +1,6 @@
 # Roadmap
 
-The current focus is preparing the initial public release and addressing reproducible reliability and compatibility problems.
+The current focus is addressing reproducible reliability and compatibility problems in the initial public release.
 
 There are no announced feature milestones or delivery dates. This page is intentionally small rather than a list of speculative promises.
 
