@@ -6,7 +6,7 @@ An independent Apple Music companion for macOS: a left-edge waveform, floating p
 
 ## Download
 
-**[Download Cuetide 1.0.0](https://github.com/Nariiius/cuetide-releases/releases/download/v1.0.0/Cuetide-1.0.0.dmg)** · [SHA-256 checksum](https://github.com/Nariiius/cuetide-releases/releases/download/v1.0.0/Cuetide-1.0.0.dmg.sha256) · [Release notes](https://github.com/Nariiius/cuetide-releases/releases/tag/v1.0.0)
+**[Download Cuetide 1.0.0](https://github.com/Nariiius/cuetide-releases/releases/download/v1.0.0/Cuetide-1.0.0.dmg)** · [Release notes](https://github.com/Nariiius/cuetide-releases/releases/tag/v1.0.0)
 
 This repository hosts official app downloads and support, not the private application source or its history.
 
@@ -17,19 +17,47 @@ This repository hosts official app downloads and support, not the private applic
 
 ## Install and update
 
-Download the matching DMG and checksum from **Releases**, not an issue attachment or unknown mirror. From the folder containing both files:
+1. **Download** the DMG from the official link above.
+2. **Open** the DMG and drag **Cuetide** into **Applications**.
+3. Eject the DMG and **open Cuetide from Applications**. Look for its menu-bar icon and screen-edge panel rather than a Dock window.
+
+This free release is ad-hoc signed, without an Apple Developer ID or notarisation. If macOS blocks a copy you trust, use **System Settings → Privacy & Security → Open Anyway** for Cuetide, if offered, then authenticate and confirm. [Apple's instructions](https://support.apple.com/en-us/102445). Stop for malware/damage warnings or if no genuine per-app override is offered; do not disable Gatekeeper or strip quarantine attributes.
+
+<details>
+<summary>Optional: verify the download's SHA-256 checksum</summary>
+
+Download the matching [checksum file](https://github.com/Nariiius/cuetide-releases/releases/download/v1.0.0/Cuetide-1.0.0.dmg.sha256) into the same folder as the DMG. From that folder, run:
 
 ```sh
 shasum -a 256 -c Cuetide-1.0.0.dmg.sha256
 ```
 
-Continue only if the matching DMG reports `OK`. A checksum checks integrity, **not publisher identity or malware safety**. Open the DMG, drag Cuetide into Applications, eject the image and launch the installed copy. Look for its menu-bar icon and screen-edge panel rather than a Dock window.
+The matching DMG should report `OK`. If it does not, stop and download the matching files again. A checksum checks file integrity, **not publisher identity or malware safety**.
 
-If macOS blocks the trusted unsigned app, use **System Settings → Privacy & Security → Open Anyway** for Cuetide, if offered, then authenticate and confirm. [Apple's instructions](https://support.apple.com/en-us/102445). Stop if macOS reports malware, damage or offers no genuine per-app override. Do not disable Gatekeeper or strip quarantine attributes.
+</details>
 
-Grant only the permissions you need: **Automation → Music** for library/playback actions; **System Audio Recording** for the local waveform; optional **Accessibility** for mirroring Music's pins and opening its AirPlay picker. MusicKit authorization is separate and does not fix missing signing/provisioning.
+Grant only the permissions you need: **Automation → Music** for library/playback actions; **System Audio Recording** for the local waveform; optional **Accessibility** to refresh Music's live Pins, open native pins not matched to a library song/playlist, and open Music's native AirPlay picker. Cached pins matched to library songs/playlists, live queue actions, AutoPlay and AutoMix do not require Accessibility. MusicKit authorization is separate and does not fix missing signing/provisioning.
 
-For an update, quit Cuetide, verify the new release's matching checksum and replace the Applications copy. Ad-hoc updates **may** require renewed permissions; review the installed copy in System Settings. Do not reset unrelated apps' permissions. Private Apple interfaces can change, so a permission reset cannot fix every queue or lyrics failure.
+For an update, quit Cuetide and replace the Applications copy with the new release. Checksum verification is optional. Ad-hoc updates **may** require renewed permissions; review the installed copy in System Settings. Do not reset unrelated apps' permissions.
+
+## What you can do
+
+- **Keep music at the screen edge.** See an audio-reactive waveform and hover to open the floating player, with artwork, playback controls, progress and volume.
+- **Manage Up Next.** Jump to a queued song, remove it or reorder the live queue. AutoPlay and AutoMix reflect supported Music states; Cuetide does not run its own continuation engine.
+- **Browse your library.** Open Pins, Playlists, Songs and Favourite Songs from the Library view.
+- **Filter in plain language.** Explore your library with natural-language and mood filters, then use **Teach** to correct local classifications. Filtering uses local rules and Apple's on-device models when available.
+- **Follow lyrics.** Show available local or LRCLIB lyrics; seek from a lyric line when synced lyrics are available.
+- **Choose where sound plays.** Select a Mac playback output or open Music's native AirPlay picker. The picker needs Accessibility permission.
+- **Adjust the glass.** Fine-tune frost, opacity, dark tint and artwork blur in Settings.
+
+## Known issues and limitations
+
+- [Performance problems — investigation #1](https://github.com/Nariiius/cuetide-releases/issues/1).
+- [UI glitches — investigation #2](https://github.com/Nariiius/cuetide-releases/issues/2).
+
+These reports are open for investigation; their causes and scope are not yet diagnosed.
+
+Apple's private queue interfaces and local lyric-cache format can change with macOS/Music updates. A permission reset cannot repair an incompatible interface. MusicKit account/catalog features require Apple's authorisation and appropriate signing/provisioning; this ad-hoc build does not guarantee those features. Intel compatibility is not verified.
 
 ## Playlists and privacy
 
